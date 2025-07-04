@@ -9,8 +9,13 @@ import java.util.UUID;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "documento")
-
+/*
+@NamedQuery(name = "Documento.findByISBN", query = "SELECT d FROM Documento d WHERE d.codeISBN = :isbn")
+@NamedQuery(name = "Documento.findByAnnoPubblicazione", query = "SELECT d FROM Documento d WHERE YEAR(d.annoPubblicazione) = :anno")
+@NamedQuery(name = "Documento.findByTitolo", query = "SELECT d FROM Documento d WHERE LOWER(d.titolo) LIKE LOWER(:titolo)")
+*/
 public abstract class Documento {
+
     @Id
     @GeneratedValue
     @Column(name = "codeISBN_id")
@@ -23,8 +28,7 @@ public abstract class Documento {
     public Documento() {
     }
 
-    public Documento(UUID codeISBN, String titolo, LocalDate annoPubblicazione, int numeroPagine) {
-        this.codeISBN = codeISBN;
+    public Documento(String titolo, LocalDate annoPubblicazione, int numeroPagine) {
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
         this.numeroPagine = numeroPagine;

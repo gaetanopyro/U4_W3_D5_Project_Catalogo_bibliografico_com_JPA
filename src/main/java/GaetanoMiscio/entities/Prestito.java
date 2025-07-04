@@ -7,7 +7,14 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "prestiti")
+/*
+@NamedQuery(name = "Prestito.findActiveLoansByUserCardNumber",
+        query = "SELECT p FROM Prestito p WHERE p.utente.numeroDiTessera = :numeroTessera AND p.dataRestituzioneEffettiva IS NULL")
+@NamedQuery(name = "Prestito.findOverdueLoans",
+        query = "SELECT p FROM Prestito p WHERE p.dataRestituzionePrevisto < CURRENT_DATE AND p.dataRestituzioneEffettiva IS NULL")
+*/
 public class Prestito {
+
     @Id
     @GeneratedValue
     private UUID id;
@@ -23,14 +30,14 @@ public class Prestito {
     private LocalDate dataRestituzionePrevisto;
     private LocalDate dataRestituzioneEffetiva;
 
-    public Prestito() {
+    public Prestito(Utente utente2, Riviste rivista2, LocalDate localDate, LocalDate date) {
     }
 
     public Prestito(Utente utente, Documento elementoPrestato, LocalDate dataInizioPrestito, LocalDate dataRestituzionePrevisto, LocalDate dataRestituzioneEffetiva) {
         this.utente = utente;
         this.elementoPrestato = elementoPrestato;
         this.dataInizioPrestito = dataInizioPrestito;
-        this.dataRestituzionePrevisto = dataRestituzionePrevisto;
+        this.dataRestituzionePrevisto = dataRestituzionePrevisto.plusDays(30);
         this.dataRestituzioneEffetiva = dataRestituzioneEffetiva;
     }
 

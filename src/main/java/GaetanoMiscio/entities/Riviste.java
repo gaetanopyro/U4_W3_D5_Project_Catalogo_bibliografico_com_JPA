@@ -3,21 +3,23 @@ package GaetanoMiscio.entities;
 import GaetanoMiscio.enums.Periodicità;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Entity
 @DiscriminatorValue("riviste")
 
 public class Riviste extends Documento {
+    @Enumerated(EnumType.STRING)
     private Periodicità periodicità;
 
     public Riviste() {
     }
 
-    public Riviste(UUID codeISBN, String titolo, LocalDate annoPubblicazione, int numeroPagine, Periodicità periodicità) {
-        super(codeISBN, titolo, annoPubblicazione, numeroPagine);
+    public Riviste(String titolo, LocalDate annoPubblicazione, int numeroPagine, Periodicità periodicità) {
+        super(titolo, annoPubblicazione, numeroPagine);
         this.periodicità = periodicità;
     }
 

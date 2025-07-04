@@ -1,7 +1,7 @@
 package GaetanoMiscio.exceptions;
 
 public class NotFoundException extends RuntimeException {
-    public NotFoundException(long id) {
+    public NotFoundException(String id) {
         super("Il record con id " + id + " non è stato trovato!");
     }
 }
