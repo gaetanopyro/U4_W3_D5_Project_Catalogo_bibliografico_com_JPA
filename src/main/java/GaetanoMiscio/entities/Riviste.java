@@ -21,7 +21,6 @@ public class Riviste extends Documento {
         this.periodicità = periodicità;
     }
 
-
     public Periodicità getPeriodicità() {
         return periodicità;
     }
@@ -36,7 +35,7 @@ public class Riviste extends Documento {
                 "periodicità=" + periodicità +
                 ", codeISBN=" + codeISBN +
                 ", titolo='" + titolo + '\'' +
-                ", annoPublicazione=" + annoPublicazione +
+                ", annoPubblicazione=" + annoPubblicazione +
                 ", numeroPagine=" + numeroPagine +
                 '}';
     }

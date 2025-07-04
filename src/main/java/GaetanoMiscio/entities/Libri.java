@@ -49,7 +49,7 @@ public class Libri extends Documento {
                 "genere=" + genere +
                 ", codeISBN=" + codeISBN +
                 ", titolo='" + titolo + '\'' +
-                ", annoPublicazione=" + annoPublicazione +
+                ", annoPubblicazione=" + annoPubblicazione +
                 ", numeroPagine=" + numeroPagine +
                 ", autore='" + autore + '\'' +
                 '}';
